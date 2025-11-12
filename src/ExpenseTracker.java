@@ -1,39 +1,71 @@
+// Файл: ExpenseTracker.java
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 public class ExpenseTracker {
-    private List<Expense> expenses;
+    // Это ОБЩИЙ список всех расходов ВСЕХ пользователей
+    private List<Expense> allExpenses;
 
     public ExpenseTracker() {
-        // Инициализируем список при создании трекера
-        this.expenses = new ArrayList<>();
+        this.allExpenses = new ArrayList<>();
     }
 
-    // Метод для добавления нового расхода
+    // Добавление расхода (теперь без изменений)
     public void addExpense(Expense expense) {
-        this.expenses.add(expense);
+        this.allExpenses.add(expense);
         System.out.println("Расход успешно добавлен.");
     }
 
-    // Метод для получения списка всех расходов
-    public List<Expense> getAllExpenses() {
-        return new ArrayList<>(expenses);
+    // --- МЕТОДЫ ДЛЯ USER ---
+
+    /**
+     * Получить расходы ТОЛЬКО для конкретного пользователя.
+     */
+    public List<Expense> getExpensesForUser(User user) {
+        // Используем Stream API для фильтрации
+        return allExpenses.stream()
+                .filter(expense -> expense.getUsername().equals(user.getUsername()))
+                .collect(Collectors.toList());
     }
 
-    public Map<String, Double> getCategoryReport() {
+    /**
+     * Построить отчет ТОЛЬКО для конкретного пользователя.
+     */
+    public Map<String, Double> getCategoryReportForUser(User user) {
         Map<String, Double> categoryTotals = new HashMap<>();
+        List<Expense> userExpenses = getExpensesForUser(user); // Получаем только его расходы
 
-        // Проходим по каждому расходу в нашем списке
-        for (Expense expense : expenses) {
+        for (Expense expense : userExpenses) {
             String category = expense.getCategory();
             double amount = expense.getAmount();
-
-            double currentTotal = categoryTotals.getOrDefault(category, 0.0);
-            categoryTotals.put(category, currentTotal + amount);
+            categoryTotals.put(category, categoryTotals.getOrDefault(category, 0.0) + amount);
         }
+        return categoryTotals;
+    }
 
+    // --- МЕТОДЫ ДЛЯ ADMIN ---
+
+    /**
+     * Получить ВСЕ расходы (для админа).
+     */
+    public List<Expense> getAllExpensesAsAdmin() {
+        return new ArrayList<>(allExpenses);
+    }
+
+    /**
+     * Построить ОБЩИЙ отчет (для админа).
+     */
+    public Map<String, Double> getCategoryReportAsAdmin() {
+        Map<String, Double> categoryTotals = new HashMap<>();
+
+        for (Expense expense : allExpenses) { // Используем allExpenses
+            String category = expense.getCategory();
+            double amount = expense.getAmount();
+            categoryTotals.put(category, categoryTotals.getOrDefault(category, 0.0) + amount);
+        }
         return categoryTotals;
     }
 }
