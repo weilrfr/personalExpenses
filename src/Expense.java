@@ -1,4 +1,3 @@
-// Файл: Expense.java
 public class Expense {
     private double amount;
     private String category;

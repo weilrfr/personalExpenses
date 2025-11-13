@@ -42,11 +42,8 @@ public class Main {
         }
     }
 
-    /**
-     * НОВЫЙ МЕТОД
-     * Показывает стартовое меню (Логин / Регистрация / Выход).
-     * @return "login", "register" или "exit" в зависимости от выбора.
-     */
+
+     // Показывает стартовое меню (Логин / Регистрация / Выход).
     private static String showLoginRegisterMenu() {
         while (true) {
             System.out.println("\n=== Главное Меню Учета Расходов ===");
@@ -70,11 +67,8 @@ public class Main {
         }
     }
 
-    /**
-     * МОДИФИЦИРОВАННЫЙ МЕТОД
-     * Обрабатывает ТОЛЬКО логику ВХОДА.
-     * @return Вошедший User или null, если вход не удался (или пользователь нажал 'назад').
-     */
+
+     // Обрабатывает ТОЛЬКО логику ВХОДА.
     private static User handleLogin() {
         System.out.println("\n--- Вход в Систему ---");
         System.out.println("Тестовые данные (Админ): admin / admin123");
