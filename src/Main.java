@@ -99,10 +99,6 @@ public class Main {
         }
     }
 
-    /**
-     * НОВЫЙ МЕТОД
-     * Обрабатывает логику РЕГИСТРАЦИИ.
-     */
     private static void handleRegister() {
         System.out.println("\n--- Регистрация Нового Пользователя ---");
 
@@ -141,14 +137,6 @@ public class Main {
         // В любом случае, возвращаемся в главное меню (автоматически)
     }
 
-    //
-    // --- ОСТАЛЬНАЯ ЧАСТЬ КЛАССА (БЕЗ ИЗМЕНЕНИЙ) ---
-    //
-
-    /**
-     * Главный цикл работы приложения (меню и действия) ПОСЛЕ логина.
-     * (БЕЗ ИЗМЕНЕНИЙ)
-     */
     private static void runApplicationLoop(User user) {
         boolean running = true;
         while (running) {
@@ -159,8 +147,6 @@ public class Main {
             }
         }
     }
-
-    // --- МЕНЮ И ДЕЙСТВИЯ USER (БЕЗ ИЗМЕНЕНИЙ) ---
 
     private static boolean showUserMenu() {
         System.out.println("\n=== Меню Пользователя ("+ authService.getCurrentUser().getUsername() +") ===");
@@ -191,7 +177,6 @@ public class Main {
         return true; // Продолжаем цикл
     }
 
-    // (Методы handleShowUserExpenses и handleShowUserCategoryReport БЕЗ ИЗМЕНЕНИЙ)
     private static void handleShowUserExpenses() {
         System.out.println("\n--- Мои расходы ---");
         List<Expense> expenses = tracker.getExpensesForUser(authService.getCurrentUser());
@@ -220,8 +205,6 @@ public class Main {
         System.out.printf("ОБЩАЯ СУММА: %.2f\n", total);
     }
 
-    // --- МЕНЮ И ДЕЙСТВИЯ ADMIN (БЕЗ ИЗМЕНЕНИЙ) ---
-
     private static boolean showAdminMenu() {
         System.out.println("\n=== Меню Администратора ===");
         System.out.println("1. Показать ВСЕ расходы (всех пользователей)");
@@ -247,7 +230,6 @@ public class Main {
         return true;
     }
 
-    // (Методы handleShowAllAdminExpenses и handleShowAllAdminCategoryReport БЕЗ ИЗМЕНЕНИЙ)
     private static void handleShowAllAdminExpenses() {
         System.out.println("\n--- Все расходы (Админ) ---");
         List<Expense> expenses = tracker.getAllExpensesAsAdmin();
@@ -275,9 +257,6 @@ public class Main {
         System.out.println("------------------------------------");
         System.out.printf("ОБЩАЯ СУММА (ВСЕ ПОЛЬЗОВАТЕЛИ): %.2f\n", total);
     }
-
-
-    // --- ОБЩИЕ МЕТОДЫ (Вспомогательные) (БЕЗ ИЗМЕНЕНИЙ) ---
 
     private static void handleAddExpense() {
         User currentUser = authService.getCurrentUser();

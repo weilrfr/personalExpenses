@@ -6,14 +6,14 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 public class ExpenseTracker {
-    // Это ОБЩИЙ список всех расходов ВСЕХ пользователей
+    // Это ОБЩИЙ список всех расходов всех пользователей
     private List<Expense> allExpenses;
 
     public ExpenseTracker() {
         this.allExpenses = new ArrayList<>();
     }
 
-    // Добавление расхода (теперь без изменений)
+    // Добавление расхода
     public void addExpense(Expense expense) {
         this.allExpenses.add(expense);
         System.out.println("Расход успешно добавлен.");
