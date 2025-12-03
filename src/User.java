@@ -1,7 +1,6 @@
-// Файл: User.java
 public class User {
     private String username;
-    private String password; // В реальном приложении здесь должен быть хэш
+    private String password;
     private Role role;
 
     public User(String username, String password, Role role) {
@@ -10,7 +9,6 @@ public class User {
         this.role = role;
     }
 
-    // Геттеры
     public String getUsername() {
         return username;
     }

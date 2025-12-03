@@ -5,7 +5,7 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 public class ExpenseTracker {
-    // Это ОБЩИЙ список всех расходов ВСЕХ пользователей
+    // Это ОБЩИЙ список всех расходов всех пользователей
     private List<Expense> allExpenses;
 
     public ExpenseTracker() {
@@ -20,9 +20,8 @@ public class ExpenseTracker {
 
     // --- МЕТОДЫ ДЛЯ USER ---
 
-    /**
-     * Получить расходы ТОЛЬКО для конкретного пользователя.
-     */
+
+    // Получить расходы ТОЛЬКО для конкретного пользователя.
     public List<Expense> getExpensesForUser(User user) {
         // Используем Stream API для фильтрации
         return allExpenses.stream()
@@ -30,9 +29,7 @@ public class ExpenseTracker {
                 .collect(Collectors.toList());
     }
 
-    /**
-     * Построить отчет ТОЛЬКО для конкретного пользователя.
-     */
+     // Построить отчет ТОЛЬКО для конкретного пользователя.
     public Map<String, Double> getCategoryReportForUser(User user) {
         Map<String, Double> categoryTotals = new HashMap<>();
         List<Expense> userExpenses = getExpensesForUser(user); // Получаем только его расходы
@@ -47,16 +44,13 @@ public class ExpenseTracker {
 
     // --- МЕТОДЫ ДЛЯ ADMIN ---
 
-    /**
-     * Получить ВСЕ расходы (для админа).
-     */
+
+    // Получить ВСЕ расходы (для админа).
     public List<Expense> getAllExpensesAsAdmin() {
         return new ArrayList<>(allExpenses);
     }
 
-    /**
-     * Построить ОБЩИЙ отчет (для админа).
-     */
+    // Построить ОБЩИЙ отчет (для админа).
     public Map<String, Double> getCategoryReportAsAdmin() {
         Map<String, Double> categoryTotals = new HashMap<>();
 

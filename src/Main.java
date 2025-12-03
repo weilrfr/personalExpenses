@@ -42,6 +42,11 @@ public class Main {
         }
     }
 
+<<<<<<< HEAD
+=======
+
+     // Показывает стартовое меню (Логин / Регистрация / Выход).
+>>>>>>> 5732b72785296f5356b9904be2e7c1ad6f2f5806
     private static String showLoginRegisterMenu() {
         while (true) {
             System.out.println("\n=== Главное Меню Учета Расходов ===");
@@ -65,11 +70,8 @@ public class Main {
         }
     }
 
-    /**
-     * МОДИФИЦИРОВАННЫЙ МЕТОД
-     * Обрабатывает ТОЛЬКО логику ВХОДА.
-     * @return Вошедший User или null, если вход не удался (или пользователь нажал 'назад').
-     */
+
+     // Обрабатывает ТОЛЬКО логику ВХОДА.
     private static User handleLogin() {
         System.out.println("\n--- Вход в Систему ---");
         System.out.println("Тестовые данные (Админ): admin / admin123");
@@ -94,10 +96,6 @@ public class Main {
         }
     }
 
-    /**
-     * НОВЫЙ МЕТОД
-     * Обрабатывает логику РЕГИСТРАЦИИ.
-     */
     private static void handleRegister() {
         System.out.println("\n--- Регистрация Нового Пользователя ---");
 
@@ -136,6 +134,7 @@ public class Main {
         // В любом случае, возвращаемся в главное меню (автоматически)
     }
 
+<<<<<<< HEAD
     //
     // --- ОСТАЛЬНАЯ ЧАСТЬ КЛАССА ---
     //
@@ -144,6 +143,8 @@ public class Main {
      * Главный цикл работы приложения (меню и действия) ПОСЛЕ логина.
      * (БЕЗ ИЗМЕНЕНИЙ)
      */
+=======
+>>>>>>> 5732b72785296f5356b9904be2e7c1ad6f2f5806
     private static void runApplicationLoop(User user) {
         boolean running = true;
         while (running) {
@@ -155,8 +156,11 @@ public class Main {
         }
     }
 
+<<<<<<< HEAD
     // --- МЕНЮ И ДЕЙСТВИЯ USER ---
 
+=======
+>>>>>>> 5732b72785296f5356b9904be2e7c1ad6f2f5806
     private static boolean showUserMenu() {
         System.out.println("\n=== Меню Пользователя ("+ authService.getCurrentUser().getUsername() +") ===");
         System.out.println("1. Добавить мой расход");
@@ -186,7 +190,10 @@ public class Main {
         return true; // Продолжаем цикл
     }
 
+<<<<<<< HEAD
     // (Методы handleShowUserExpenses и handleShowUserCategoryReport)
+=======
+>>>>>>> 5732b72785296f5356b9904be2e7c1ad6f2f5806
     private static void handleShowUserExpenses() {
         System.out.println("\n--- Мои расходы ---");
         List<Expense> expenses = tracker.getExpensesForUser(authService.getCurrentUser());
@@ -215,8 +222,11 @@ public class Main {
         System.out.printf("ОБЩАЯ СУММА: %.2f\n", total);
     }
 
+<<<<<<< HEAD
     // --- МЕНЮ И ДЕЙСТВИЯ ADMIN ---
 
+=======
+>>>>>>> 5732b72785296f5356b9904be2e7c1ad6f2f5806
     private static boolean showAdminMenu() {
         System.out.println("\n=== Меню Администратора ===");
         System.out.println("1. Показать ВСЕ расходы (всех пользователей)");
@@ -242,7 +252,10 @@ public class Main {
         return true;
     }
 
+<<<<<<< HEAD
     // (Методы handleShowAllAdminExpenses и handleShowAllAdminCategoryReport)
+=======
+>>>>>>> 5732b72785296f5356b9904be2e7c1ad6f2f5806
     private static void handleShowAllAdminExpenses() {
         System.out.println("\n--- Все расходы (Админ) ---");
         List<Expense> expenses = tracker.getAllExpensesAsAdmin();
@@ -271,9 +284,12 @@ public class Main {
         System.out.printf("ОБЩАЯ СУММА (ВСЕ ПОЛЬЗОВАТЕЛИ): %.2f\n", total);
     }
 
+<<<<<<< HEAD
 
     // ОБЩИЕ МЕТОДЫ (Вспомогательные)
 
+=======
+>>>>>>> 5732b72785296f5356b9904be2e7c1ad6f2f5806
     private static void handleAddExpense() {
         User currentUser = authService.getCurrentUser();
         System.out.println("\n--- Добавление расхода (от имени: " + currentUser.getUsername() + ") ---");
