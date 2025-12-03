@@ -42,11 +42,6 @@ public class Main {
         }
     }
 
-    /**
-     * НОВЫЙ МЕТОД
-     * Показывает стартовое меню (Логин / Регистрация / Выход).
-     * @return "login", "register" или "exit" в зависимости от выбора.
-     */
     private static String showLoginRegisterMenu() {
         while (true) {
             System.out.println("\n=== Главное Меню Учета Расходов ===");
@@ -142,7 +137,7 @@ public class Main {
     }
 
     //
-    // --- ОСТАЛЬНАЯ ЧАСТЬ КЛАССА (БЕЗ ИЗМЕНЕНИЙ) ---
+    // --- ОСТАЛЬНАЯ ЧАСТЬ КЛАССА ---
     //
 
     /**
@@ -160,7 +155,7 @@ public class Main {
         }
     }
 
-    // --- МЕНЮ И ДЕЙСТВИЯ USER (БЕЗ ИЗМЕНЕНИЙ) ---
+    // --- МЕНЮ И ДЕЙСТВИЯ USER ---
 
     private static boolean showUserMenu() {
         System.out.println("\n=== Меню Пользователя ("+ authService.getCurrentUser().getUsername() +") ===");
@@ -191,7 +186,7 @@ public class Main {
         return true; // Продолжаем цикл
     }
 
-    // (Методы handleShowUserExpenses и handleShowUserCategoryReport БЕЗ ИЗМЕНЕНИЙ)
+    // (Методы handleShowUserExpenses и handleShowUserCategoryReport)
     private static void handleShowUserExpenses() {
         System.out.println("\n--- Мои расходы ---");
         List<Expense> expenses = tracker.getExpensesForUser(authService.getCurrentUser());
@@ -220,7 +215,7 @@ public class Main {
         System.out.printf("ОБЩАЯ СУММА: %.2f\n", total);
     }
 
-    // --- МЕНЮ И ДЕЙСТВИЯ ADMIN (БЕЗ ИЗМЕНЕНИЙ) ---
+    // --- МЕНЮ И ДЕЙСТВИЯ ADMIN ---
 
     private static boolean showAdminMenu() {
         System.out.println("\n=== Меню Администратора ===");
@@ -247,7 +242,7 @@ public class Main {
         return true;
     }
 
-    // (Методы handleShowAllAdminExpenses и handleShowAllAdminCategoryReport БЕЗ ИЗМЕНЕНИЙ)
+    // (Методы handleShowAllAdminExpenses и handleShowAllAdminCategoryReport)
     private static void handleShowAllAdminExpenses() {
         System.out.println("\n--- Все расходы (Админ) ---");
         List<Expense> expenses = tracker.getAllExpensesAsAdmin();
@@ -277,7 +272,7 @@ public class Main {
     }
 
 
-    // --- ОБЩИЕ МЕТОДЫ (Вспомогательные) (БЕЗ ИЗМЕНЕНИЙ) ---
+    // ОБЩИЕ МЕТОДЫ (Вспомогательные)
 
     private static void handleAddExpense() {
         User currentUser = authService.getCurrentUser();

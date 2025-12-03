@@ -1,4 +1,3 @@
-// Файл: ExpenseTracker.java
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -13,7 +12,7 @@ public class ExpenseTracker {
         this.allExpenses = new ArrayList<>();
     }
 
-    // Добавление расхода (теперь без изменений)
+    // Добавление расхода
     public void addExpense(Expense expense) {
         this.allExpenses.add(expense);
         System.out.println("Расход успешно добавлен.");

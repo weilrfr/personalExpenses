@@ -1,9 +1,8 @@
-// Файл: Expense.java
 public class Expense {
     private double amount;
     private String category;
     private String description;
-    private String username; // <-- НОВОЕ ПОЛЕ: кто совершил расход
+    private String username;
 
     public Expense(double amount, String category, String description, String username) {
         this.amount = amount;
